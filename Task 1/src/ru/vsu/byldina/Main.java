@@ -1,7 +1,8 @@
-import ru.vsu.byldina.*;
+package ru.vsu.byldina;
 
-public class App {
-    public static void main(String[] args) throws Exception {
+public class Main {
+
+    public static void main(String[] args) {
         var list = new LinkedList<Integer>();
 
         list.add(1);
