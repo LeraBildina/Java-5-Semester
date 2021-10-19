@@ -1,28 +1,33 @@
 package ru.vsu.byldina;
 
 public class Main {
-
     public static void main(String[] args) {
         var list = new LinkedList<Integer>();
+        var manager = new ConsoleCollectionManager<>(list, x -> Integer.parseInt(x));
+        try {
+            while (true) {
+                ConsoleCollectionManager.printMenu();
+                int index = manager.readIndex();
 
-        list.add(1);
-        list.add(2);
-
-        list.clear();
-
-        list.add(2);
-        list.add(1);
-
-        list.add(3);
-        list.add(4);
-        list.add(5);
-        
-        list.remove(2);
-        list.remove(5);
-        list.add(6);
-
-        for (var obj : list) {
-            System.out.println(obj); 
+                switch (index) {
+                    case 1:
+                        manager.addElement();
+                        break;
+                    case 2:
+                        manager.removeFirstElement();
+                        break;
+                    case 3:
+                        manager.clear();
+                        break;
+                    case 4:
+                        manager.printElements();
+                        break;
+                    case 5:
+                        return;
+                }
+            }
+        } finally {
+            manager.close();
         }
     }
 }
