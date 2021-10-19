@@ -99,7 +99,7 @@ public final class LinkedList<E> implements Collection<E> {
         }
 
         ++this.size;
-        return false;
+        return true;
     }
 
     @Override
