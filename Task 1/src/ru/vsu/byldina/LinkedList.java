@@ -1,5 +1,6 @@
 package ru.vsu.byldina;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -73,8 +74,9 @@ public final class LinkedList<E> implements Collection<E> {
         if (a == null)
             throw new NullPointerException("a is null.");
 
-        if (this.size > a.length)
-            return (T[]) toArray();
+        if (this.size > a.length) {
+            return (T[]) Arrays.copyOf(toArray(), size, a.getClass());
+        }
 
         int i = 0;
         Object[] oa = a;
